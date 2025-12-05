@@ -45,7 +45,7 @@ rule process_to_adata:
         raw_file=lambda wildcards: "data/raw_data/{dataset}/.done" 
             if cfg.get_from_dataset(wildcards.dataset, key="download_script").endswith(".sh") 
             else "data/raw_data/{dataset}.RData",
-        script=lambda wildcards:f"workflow/{cfg.get_from_dataset(wildcards.dataset, key="process_script")}
+        script=lambda wildcards:f"workflow/{cfg.get_from_dataset(wildcards.dataset, key="process_script")}"
     output:
         processed_file="data/processed_adata/{dataset}.h5ad"
     params:
@@ -64,7 +64,7 @@ rule process_to_adata:
 rule process_to_adata_multi:
     input:
         raw_dir="data/raw_data/{dataset}/.done",
-                script=lambda wildcards:f"workflow/{cfg.get_from_dataset(wildcards.dataset, key="process_script")}
+                script=lambda wildcards:f"workflow/{cfg.get_from_dataset(wildcards.dataset, key="process_script")}"
     output: processed_file = "data/processed_adata/{dataset}-{subdata}.h5ad"
     params:
         script=lambda wildcards: workflow.source_path(cfg.get_from_dataset(wildcards.dataset, key="process_script")),

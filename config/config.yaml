@@ -114,7 +114,7 @@ DATASETS:
     # Jung:
     #   subdatasets:
     #   download_script: "../scripts/data_scripts/download_data/jung.sh"
-    #   process_script: "../scripts/data_scripts/process_raw_to_adata/jung.py"
+    #   process_script: "scripts/data_scripts/process_raw_to_adata/jung.py"
     #   cell_labels: label
     #   data_type: raw
     #   batch_labels:
@@ -134,21 +134,11 @@ DATASETS:
     #   tissue: lung
 
 
-    # T_cells_CiteSeq_GEX:
-    #   download_script:
-    #   process_script: 
-    #   subdatasets:
-    #   data_type: raw
-    #   standard: gold
-    #   organism: homo_sapiens
-    #   tissue: blood
-    #   batch_labels:
-    #   cell_labels: cell_labels  
 
 
     # Zheng:
     #   download_script: "../scripts/data_scripts/download_data/zheng.sh"
-    #   process_script: "../scripts/data_scripts/process_raw_to_adata/zheng.py"
+    #   process_script: "scripts/data_scripts/process_raw_to_adata/zheng.py"
     #   subdatasets:
     #   data_type: raw
     #   standard: gold
@@ -159,7 +149,7 @@ DATASETS:
 
     # Yan:
     #   download_script: "../scripts/data_scripts/download_data/yan.sh"
-    #   process_script: "../scripts/data_scripts/process_raw_to_adata/yan.py"
+    #   process_script: "scripts/data_scripts/process_raw_to_adata/yan.py"
     #   subdatasets:
     #   cell_labels: cell_labels
     #   data_type: rpkm
@@ -170,7 +160,7 @@ DATASETS:
     Biase:
       subdatasets:
       download_script: "../scripts/data_scripts/download_data/biase.sh"
-      process_script: "../scripts/data_scripts/process_raw_to_adata/biase.py"
+      process_script: "scripts/data_scripts/process_raw_to_adata/biase.py"
       cell_labels: cell_type
       data_type: fpkm
       standard: gold
@@ -181,7 +171,7 @@ DATASETS:
       
     # Deng:
     #   download_script: "../scripts/data_scripts/download_data/deng.sh"
-    #   process_script: "../scripts/data_scripts/process_raw_to_adata/deng.py"
+    #   process_script: "scripts/data_scripts/process_raw_to_adata/deng.py"
     #   subdatasets: 
     #   cell_labels: cell_labels
     #   data_type: raw
@@ -191,7 +181,7 @@ DATASETS:
     #   tissue: embryo
     # Kolodziejczyk:
     #   download_script: "../scripts/data_scripts/download_data/kolodziejczyk.sh"
-    #   process_script: "../scripts/data_scripts/process_raw_to_adata/kolodziejczyk.py"
+    #   process_script: "scripts/data_scripts/process_raw_to_adata/kolodziejczyk.py"
     #   subdatasets: 
     #   cell_labels: cell_labels
     #   data_type: raw
@@ -201,7 +191,7 @@ DATASETS:
     #   tissue: embryo
     # Koh:
     #   download_script: "../scripts/data_scripts/download_data/koh.sh"
-    #   process_script: "../scripts/data_scripts/process_raw_to_adata/koh.py"
+    #   process_script: "scripts/data_scripts/process_raw_to_adata/koh.py"
     #   subdatasets: 
     #   cell_labels: cell_labels
     #   data_type: tpm
@@ -212,7 +202,7 @@ DATASETS:
 
     # Goolam:
     #   download_script: "../scripts/data_scripts/download_data/goolam.sh"
-    #   process_script: "../scripts/data_scripts/process_raw_to_adata/goolam.py"
+    #   process_script: "scripts/data_scripts/process_raw_to_adata/goolam.py"
     #   subdatasets: 
     #   cell_labels: cell_labels
     #   data_type: raw
@@ -221,28 +211,6 @@ DATASETS:
     #   organism: mus_musculus
     #   tissue: embryo
 
-    # Goolam_random_nosparsity_1:
-    #   download_script: "../scripts/data_scripts/download_data/goolam.sh"
-    #   process_script: "../scripts/data_scripts/process_raw_to_adata/goolam.py"
-    #   subdatasets: 
-    #   cell_labels: cell_labels
-    #   data_type: raw
-    #   batch_labels: #batch
-    #   standard: gold
-    #   organism: mus_musculus
-    #   tissue: embryo    
-      
-
-    # Goolam_random_sparse_1:
-    #   download_script: "../scripts/data_scripts/download_data/goolam.sh"
-    #   process_script: "../scripts/data_scripts/process_raw_to_adata/goolam.py"
-    #   subdatasets: 
-    #   cell_labels: cell_labels
-    #   data_type: raw
-    #   batch_labels: #batch
-    #   standard: gold
-    #   organism: mus_musculus
-    #   tissue: embryo
 
 
 TRANSFER_LEARNING:
