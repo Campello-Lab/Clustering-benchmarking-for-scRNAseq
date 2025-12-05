@@ -6,27 +6,18 @@ To get started, first create the environment using `conda` or `mamba`. This will
 ```bash
 mamba create -c conda-forge -c bioconda --name snakemake_base snakemake snakedeploy scanpy=1.10.2 anndata=0.10.2
 ```
-
-# Use the workflow with `snakedeploy`:
-
-The following instructions follow the guidelines from the [Snakemake Workflow Catalog](https://snakemake.github.io/snakemake-workflow-catalog/index.html).
-
-## Create and enter your project working directory:
-
-   ```bash
-   mkdir -p path/to/project-workdir
-   cd path/to/project-workdir
-   ```
-
-## Deploy the workflow using `snakedeploy`:
-
-   ```bash
-   snakedeploy deploy-workflow https://github.com/Campello-Lab/Clustering-benchmarking-for-scRNAseq . --tag main
+Activate the environment.
+```bash
+mamba activate snakemake_base
 ```
 
-This will create two folders:
-- `workflow`: contains the deployed Snakemake module
-- `config`: contains configuration file
+
+# Use the workflow (clone repository)
+```bash
+git clone https://github.com/Campello-Lab/Clustering-benchmarking-for-scRNAseq
+cd Clustering-benchmarking-for-scRNAseq
+```
+
    
 ## Configure Workflow:
 Configuration file `config/config.yaml` contains configuration that will enable reproduction of the benchmarking performed in the paper. Edit `config/config.yaml` to adjust settings. You can comment out datasets to run the workflow on a smaller collection.
