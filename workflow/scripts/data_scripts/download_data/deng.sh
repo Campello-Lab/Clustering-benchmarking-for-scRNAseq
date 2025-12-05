@@ -9,13 +9,6 @@ wget -O "${OUTPUT_DIR}/data/data.tar" \
 tar -C "${OUTPUT_DIR}/data" -xvf "${OUTPUT_DIR}/data/data.tar"
 gunzip ${OUTPUT_DIR}/data/*
 
-# mkdir -p /work/Master_Project/raw_data/Deng/data
-# wget -O /work/Master_Project/raw_data/Deng/data.tar 'http://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE45719&format=file'
-
-# # Extract the data into the specified folder and unzip
-# tar -C /work/Master_Project/raw_data/Deng/data -xvf /work/Master_Project/raw_data/Deng/data.tar
-# gunzip /work/Master_Project/raw_data/Deng/data/*
-## raw reads
 
 
 paste $(ls ${OUTPUT_DIR}/data/GSM111*_zy* | sort) | \
