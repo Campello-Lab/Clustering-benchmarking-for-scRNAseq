@@ -1,3 +1,3 @@
 import cellxgene_census
 
-cellxgene_census.download_source_h5ad(str(snakemake.params.dataset_id), to_path=str(snakemake.output.processed_file))
+cellxgene_census.download_source_h5ad(str(snakemake.params.dataset_id), to_path=str(snakemake.output.processed_file), census_version = "2024-07-01" )
