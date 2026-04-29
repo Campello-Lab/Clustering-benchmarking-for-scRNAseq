@@ -1,0 +1,9 @@
+name: cellxgene_2  
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.6
+  - pip=23.3.1
+  - cffi=1.17.1
+  - pip:
+      - cellxgene-census[experimental]
