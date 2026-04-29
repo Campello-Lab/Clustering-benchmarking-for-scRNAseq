@@ -11,14 +11,11 @@ import math
 
 class PrepConfig:
     def __init__(self,config):
-        self.ROOT=Path(config["ROOT"])
         self.DATASETS=config["DATASETS"]
         self.GRAPH_GENERATION=config["GRAPH_GENERATION"]
         self.CLUSTERING=config["CLUSTERING"]
-        self.TRANSFER_LEARNING = config['TRANSFER_LEARNING']
 
-    def get_from_tl(self,key):
-        return self.TRANSFER_LEARNING[key]
+  
     def get_dataset_info(self,data):
         return self.DATASETS[data].keys()
 
