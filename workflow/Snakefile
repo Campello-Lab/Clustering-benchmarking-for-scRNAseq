@@ -31,10 +31,6 @@ def get_all_outputs(cfg):
 
 rule all:
     input:
-        expand("data/processed_adata/{dataset}.h5ad", dataset=cfg.get_subdata_names()),
-        expand("data/enhanced_silver_standard/{dataset}-new_lab.h5ad", dataset=cfg.get_silver_standard()),
+        #expand("data/processed_adata/{dataset}.h5ad", dataset=cfg.get_subdata_names()),
         expand("results/benchmark_analysis/processed_normalized_data/{dataset}.h5ad",dataset=cfg.get_subdata_names()),
-        #expand("resources/models/{version}-scvi-{organism}/scvi.model/model.pt",version=cfg.get_from_tl('census_version'),
-        #organism=cfg.get_from_tl('organism')),
-        #expand("resources/ref_embeddings/{organism}/{tissue}/scvi_embedding.h5ad",zip,organism=[pair[0] for pair in cfg.get_valid_organism_tissue_pairs()],tissue=[pair[1] for pair in cfg.get_valid_organism_tissue_pairs()]),
         get_all_outputs(cfg)
