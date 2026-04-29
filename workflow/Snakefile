@@ -4,7 +4,6 @@ configfile: "config/config.yaml"
 include:'rules/common.smk'
 cfg = PrepConfig(config)
 include:'rules/get_benchmark_datasets.smk'
-include: 'rules/mitigate_bias_silver_standard.smk'
 include: 'rules/benchmark_preprocessing.smk'
 include: 'rules/benchmark_pairwise_similarity.smk'
 include: 'rules/benchmark_graph_construction.smk'
