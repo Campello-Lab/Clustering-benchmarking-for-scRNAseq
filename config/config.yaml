@@ -1,223 +1,104 @@
-ROOT: 'Snakemake'
 
 
 DATASETS:
-   # TabulaMurisHeart_cxg:
-    #   dataset_id: 1fe63353-9e75-4824-aa30-ed8d84be748c
-    #   #download_script: https://datasets.cellxgene.cziscience.com/b6fff8a8-b297-4715-b041-43d23a4e0474.h5ad
-    #   process_script: 
-    #   subdatasets:
-    #   cell_labels: predicted_cell_type
-    #   data_type: 
-    #   batch_labels:
-    #   standard: silver
-    #   organism: mus_musculus
-    #   tissue: heart
-    # TabulaSapiensLiver_cxg:
-    #   dataset_id: 6d41668c-168c-4500-b06a-4674ccf3e19d
-    #   download_script: https://datasets.cellxgene.cziscience.com/52d623c9-824c-4b62-aed7-f0f7f50858a8.h5ad
-    #   process_script: 
-    #   subdatasets:
-    #   cell_labels: cell_type
-    #   data_type: 
-    #   normalization:
-    #   batch_labels:
-    #   standard: gold
-    #   organism: homo_sapiens
-    #   tissue: liver
-    
-    # BaronPancreasData:
-    #   download_script: "../scripts/data_scripts/download_data/get_data.R"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/sce_to_adata.py"
-    #   subdatasets:
-    #   cell_labels: predicted_cell_type
-    #   data_type: 
-    #   batch_labels:
-    #   standard: silver
-    #   organism: homo_sapiens
-    #   tissue: pancreas
-    # RomanovBrainData:
-    #   download_script: "../scripts/data_scripts/download_data/get_data.R"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/sce_to_adata.py"
-    #   subdatasets:
-    #   cell_labels: predicted_cell_type
-    #   data_type: raw
-    #   normalization:
-    #   batch_labels:
-    #   standard: silver
-    #   organism: mus_musculus
-    #   tissue: brain
-    # UsoskinBrainData:
-    #   download_script: "../scripts/data_scripts/download_data/get_data.R"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/sce_to_adata.py"
-    #   subdatasets:
-    #   cell_labels: predicted_cell_type
-    #   data_type: raw
-    #   normalization:
-    #   batch_labels:
-    #   standard: silver
-    #   organism: mus_musculus
-    #   tissue: brain
-    # DarmanisBrainData:
-    #   download_script: "../scripts/data_scripts/download_data/get_data.R"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/sce_to_adata.py"
-    #   subdatasets:
-    #   cell_labels: predicted_cell_type
-    #   data_type: raw
-    #   normalization:
-    #   batch_labels:
-    #   standard: silver
-    #   organism: homo_sapiens
-    #   tissue: brain
-    # SegerstolpePancreasData:
-    #   download_script: "../scripts/data_scripts/download_data/get_data.R"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/sce_to_adata.py"
-    #   subdatasets:
-    #   cell_labels: predicted_cell_type
-    #   data_type: raw
-    #   normalization:
-    #   batch_labels:
-    #   standard: silver
-    #   organism: homo_sapiens
-    #   tissue: pancreas
-    # TasicBrainData:
-    #   download_script: "../scripts/data_scripts/download_data/get_data.R"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/sce_to_adata.py"
-    #   subdatasets:
-    #   cell_labels: predicted_cell_type
-    #   data_type: raw
-    #   normalization:
-    #   batch_labels:
-    #   standard: silver
-    #   organism: mus_musculus
-    #   tissue: brain
-    # ZeiselBrainData:
-    #   download_script: "../scripts/data_scripts/download_data/get_data.R"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/sce_to_adata.py"
-    #   subdatasets:
-    #   cell_labels: predicted_cell_type
-    #   data_type: raw
-    #   batch_labels:
-    #   standard: silver
-    #   organism: mus_musculus
-    #   tissue: brain
-    # XinPancreasData:
-    #   download_script: "../scripts/data_scripts/download_data/get_data.R"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/sce_to_adata.py"
-    #   subdatasets:
-    #   cell_labels: predicted_cell_type
-    #   data_type: rpkm
-    #   batch_labels:
-    #   standard: silver
-    #   organism: homo_sapiens
-    #   tissue: pancreas
-    # Jung:
-    #   subdatasets:
-    #   download_script: "../scripts/data_scripts/download_data/jung.sh"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/jung.py"
-    #   cell_labels: label
-    #   data_type: raw
-    #   batch_labels:
-    #   standard: gold
-    #   organism: mus_musculus
-    #   tissue: testis
+    TabulaSapiensLiver_cxg:
+      subdatasets:
+      dataset_id: 6d41668c-168c-4500-b06a-4674ccf3e19d   #For datasets available in CellxGene, it's enough to give the dataset_id
+      cell_labels: cell_type
+      data_type: raw
+      standard: gold
+      organism: homo_sapiens
+      tissue: liver
 
-    # Tian:
-    #   download_script: "../scripts/data_scripts/download_data/tian.sh"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/tian.py"
-    #   subdatasets: [sc_Celseq2_5cl_p3,sc_Celseq2_5cl_p2, sc_Celseq2_5cl_p1, sce_sc_10x_5cl_qc, sce_sc_10x_qc, sce_sc_CELseq2_qc, sce_sc_Dropseq_qc]
-    #   cell_labels: cell_line_demuxlet
-    #   data_type: raw
-    #   batch_labels:
-    #   standard: gold
-    #   organism: homo_sapiens
-    #   tissue: lung
+    Jung:
+      subdatasets:
+      download_script: "scripts/data_scripts/download_data/jung.sh"
+      process_script: "scripts/data_scripts/process_raw_to_adata/jung.py"
+      cell_labels: label
+      data_type: raw
+      standard: gold
+      organism: mus_musculus
+      tissue: testis
 
+    Tian:
+      subdatasets:
+      download_script: "scripts/data_scripts/download_data/tian.sh"
+      process_script: "scripts/data_scripts/process_raw_to_adata/tian.py"
+      subdatasets: [sc_Celseq2_5cl_p3,sc_Celseq2_5cl_p2, sc_Celseq2_5cl_p1, sce_sc_10x_5cl_qc, sce_sc_10x_qc, sce_sc_CELseq2_qc, sce_sc_Dropseq_qc]
+      cell_labels: cell_line_demuxlet
+      data_type: raw
+      standard: gold
+      organism: homo_sapiens
+      tissue: lung
 
+    Zheng:
+      subdatasets:
+      download_script: "scripts/data_scripts/download_data/zheng.sh"
+      process_script: "scripts/data_scripts/process_raw_to_adata/zheng.py"
+      data_type: raw
+      standard: gold
+      organism: homo_sapiens
+      tissue: blood
+      cell_labels: label  
 
+    Yan:
+      subdatasets:
+      download_script: "scripts/data_scripts/download_data/yan.sh"
+      process_script: "scripts/data_scripts/process_raw_to_adata/yan.py"
+      cell_labels: cell_labels
+      data_type: rpkm
+      standard: gold
+      organism: homo_sapiens
+      tissue: embryo
 
-    # Zheng:
-    #   download_script: "../scripts/data_scripts/download_data/zheng.sh"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/zheng.py"
-    #   subdatasets:
-    #   data_type: raw
-    #   standard: gold
-    #   organism: homo_sapiens
-    #   tissue: blood
-    #   batch_labels:
-    #   cell_labels: label  
-
-    # Yan:
-    #   download_script: "../scripts/data_scripts/download_data/yan.sh"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/yan.py"
-    #   subdatasets:
-    #   cell_labels: cell_labels
-    #   data_type: rpkm
-    #   batch_labels:
-    #   standard: gold
-    #   organism: homo_sapiens
-    #   tissue: embryo
     Biase:
       subdatasets:
-      download_script: "../scripts/data_scripts/download_data/biase.sh"
+      download_script: "scripts/data_scripts/download_data/biase.sh"
       process_script: "scripts/data_scripts/process_raw_to_adata/biase.py"
       cell_labels: cell_type
       data_type: fpkm
       standard: gold
       organism: mus_musculus
       tissue: embryo
-      batch_labels:
+           
+    Deng:
+      subdatasets:
+      download_script: "scripts/data_scripts/download_data/deng.sh"
+      process_script: "scripts/data_scripts/process_raw_to_adata/deng.py"
+      cell_labels: cell_labels
+      data_type: raw
+      standard: gold
+      organism: mus_musculus
+      tissue: embryo
+    Kolodziejczyk:
+      subdatasets:
+      download_script: "scripts/data_scripts/download_data/kolodziejczyk.sh"
+      process_script: "scripts/data_scripts/process_raw_to_adata/kolodziejczyk.py"
+      cell_labels: cell_labels
+      data_type: raw
+      standard: gold
+      organism: mus_musculus
+      tissue: embryo
+    Koh:
+      subdatasets:
+      download_script: "scripts/data_scripts/download_data/koh.sh"
+      process_script: "scripts/data_scripts/process_raw_to_adata/koh.py"
+      cell_labels: cell_labels
+      data_type: tpm
+      standard: gold
+      organism: mus_musculus
+      tissue: embryo stem cells
 
-      
-    # Deng:
-    #   download_script: "../scripts/data_scripts/download_data/deng.sh"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/deng.py"
-    #   subdatasets: 
-    #   cell_labels: cell_labels
-    #   data_type: raw
-    #   batch_labels: #sample
-    #   standard: gold
-    #   organism: mus_musculus
-    #   tissue: embryo
-    # Kolodziejczyk:
-    #   download_script: "../scripts/data_scripts/download_data/kolodziejczyk.sh"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/kolodziejczyk.py"
-    #   subdatasets: 
-    #   cell_labels: cell_labels
-    #   data_type: raw
-    #   batch_labels: #batch
-    #   standard: gold
-    #   organism: mus_musculus
-    #   tissue: embryo
-    # Koh:
-    #   download_script: "../scripts/data_scripts/download_data/koh.sh"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/koh.py"
-    #   subdatasets: 
-    #   cell_labels: cell_labels
-    #   data_type: tpm
-    #   batch_labels: 
-    #   standard: gold
-    #   organism: mus_musculus
-    #   tissue: embryo stem cells
+    Goolam:
+      subdatasets:
+      download_script: "scripts/data_scripts/download_data/goolam.sh"
+      process_script: "scripts/data_scripts/process_raw_to_adata/goolam.py"
+      cell_labels: cell_labels
+      data_type: raw
+      standard: gold
+      organism: mus_musculus
+      tissue: embryo
 
-    # Goolam:
-    #   download_script: "../scripts/data_scripts/download_data/goolam.sh"
-    #   process_script: "scripts/data_scripts/process_raw_to_adata/goolam.py"
-    #   subdatasets: 
-    #   cell_labels: cell_labels
-    #   data_type: raw
-    #   batch_labels: #batch
-    #   standard: gold
-    #   organism: mus_musculus
-    #   tissue: embryo
-
-
-
-TRANSFER_LEARNING:
-  census_version: "2024-07-01"
-  organism: 
-    - "mus_musculus"
-    - "homo_sapiens"
 
 
 GRAPH_GENERATION:
@@ -228,7 +109,7 @@ GRAPH_GENERATION:
     - 'braycurtis'
     - 'cosine'
     - 'spearman'
-    - 'correlation'  #is pearson correlation 
+    - 'correlation'  #pearson correlation 
 
 
   neighbors:    #define list with some fixed step 
