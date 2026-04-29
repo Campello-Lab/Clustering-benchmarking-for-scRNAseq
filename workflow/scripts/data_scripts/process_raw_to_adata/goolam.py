@@ -30,13 +30,11 @@ def main(input_dir, output_file):
             cell_types.append('blast')
         elif '2cell' in labels[i]:
             cell_types.append('2cell')
-    print(metadata['Characteristics[batch]'][::2])
     obs = pd.DataFrame()
     var = pd.DataFrame()
     var['genes']= counts.index.values
     obs['sample'] = counts.columns.values
     obs['cell_labels']=cell_types
-    obs['batch'] = metadata['Characteristics[batch]'][::2].reset_index(drop=True).astype('category')
     adata = ad.AnnData( X=counts.values.T,
                                 obs=obs,
                                 var=var)
