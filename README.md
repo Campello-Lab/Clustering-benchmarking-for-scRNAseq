@@ -34,7 +34,6 @@ snakemake --cores all --sdm conda
 - This will generate:  
   - `data/`  
   - `results/benchmark_analysis/processed_normalized_data/`  
-  - `resources/`  
 
 ⚠️ The first execution may take a while, as all required environments are created.  
 
@@ -61,9 +60,7 @@ This will launch the benchmarking analysis with the specified hyperparameters an
 results/benchmark_analysis/processed_normalized_data
 ```
 
-This folder contains processed and normalized h5ad files. Each file has been processed to include 1,000 highly variable genes. The datasets include:
-- Enhanced silver-standard datasets  
-- Gold-standard datasets 
+This folder contains processed and normalized h5ad files. Each file has been processed to include 1,000 highly variable genes.
 
 This is the **entry point** for clustering benchmarking. Now, to start the workflow, run:
 
@@ -82,24 +79,8 @@ Snakemake looks for certain files/folders to decide the starting point of the wo
 - Extract `processed_to_adata.zip` → place into `data processed_to_adata/`. 
 - Effect: skips downloading datasets and converting them into `.h5ad` format.
 - Workflow will then begin at the stage of:
-   - Normalizing gold-standard and silver-standard `.h5ad` files
-   - Generating enhanced labels for silver-standard datasets
+   - Normalizing `.h5ad` files
 
-2. **Skip creation of enhanced labels**
-- Extract `enhanced_silver_standard.zip` → place contents into `data/enhanced_silver_standard/`.
-- Effect: workflow will use enhanced labels directly (skips their creation).
-
-3. **Speed up enhanced label creation (optional)**
-
-- Extract `resources.zip` → place contents into `resources/`.
-- This provides:
-   - Pretrained scVI models → `resources/models/`
-   - Reference embeddings (for training classifiers) → `resources/ref_embeddings/`
-   - Trained classifiers (used to obtain enhanced labels) → `resources/trained_classification_models/`
-- Effect: skips downloading reference embeddings.
-   - **Still performed**:
-      - Generating embeddings with pretrained scVI models
-      - Training classifiers using reference + generated embeddings
 
 
 
