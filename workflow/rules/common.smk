@@ -27,13 +27,17 @@ class PrepConfig:
     
     def get_subdata_names(self):
         subdata = []
+
         for dataset in self.get_datasets():
-            if self.get_from_dataset(dataset, 'subdatasets') is None:
-                subdata.append(f"{dataset}")
+
+            sub_files = self.get_from_dataset(dataset, 'subdatasets')
+
+            if not sub_files:
+                subdata.append(dataset)
             else:
-                sub_files = self.get_from_dataset(dataset, 'subdatasets') # Replace with dynamic detection if necessary
                 subdata.extend(f"{dataset}-{sub}" for sub in sub_files)
-        return subdata
+
+        return subdata  
     
     def get_silver_standard(self):
         return [dataset for dataset in self.get_subdata_names() 
