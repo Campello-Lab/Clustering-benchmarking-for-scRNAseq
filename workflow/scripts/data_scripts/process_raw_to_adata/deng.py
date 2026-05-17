@@ -8,7 +8,7 @@ import pathlib
 import sys
 
 def main(input_dir, output_file):
-    input_file = os.path.join(input_dir, "deng-reads.txt")  # Assuming the file is named `data.txt`
+    input_file = os.path.join(input_dir, "deng_reads.tsv")  
     if not os.path.exists(input_file):
         raise FileNotFoundError(f"Input file not found: {input_file}")
     counts = pd.read_csv(input_file, sep='\t')
