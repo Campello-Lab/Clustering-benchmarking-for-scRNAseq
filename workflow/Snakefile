@@ -3,6 +3,7 @@ configfile: "config/config.yaml"
 
 include:'rules/common.smk'
 cfg = PrepConfig(config)
+include: 'rules/get_dataset_metadata.smk'
 include:'rules/get_benchmark_datasets.smk'
 include: 'rules/benchmark_preprocessing.smk'
 include: 'rules/benchmark_pairwise_similarity.smk'
@@ -10,27 +11,41 @@ include: 'rules/benchmark_graph_construction.smk'
 include: 'rules/benchmark_clustering.smk'
 include: 'rules/benchmark_evaluate.smk'
     
+import json
 
 
-def get_all_outputs(cfg):
-    output_snakemake = []
+
+def get_all_outputs(wildcards):
+
+    checkpoints.datasets_profiled.get(**wildcards)
+
+    outputs = []
+
     for dataset in cfg.get_subdata_names():
-        dataset_file = os.path.join("results","benchmark_analysis", "processed_normalized_data", f"{dataset}.h5ad")
-        if os.path.isfile(dataset_file):
-            wildcards = cfg.get_possible_output(dataset)
-            expanded_outputs = expand(
-                "results/benchmark_analysis/evaluation/{dataset}/{clust_method}/{graph_method}/{sim_measure}/{neighbors}k.summary.txt",
-                **wildcards
-            )
-            output_snakemake.extend(expanded_outputs)
-        else:
-            continue
-    return output_snakemake
 
+        with open(f"results/metadata/{dataset}.json") as f:
+            meta = json.load(f)
+
+        outputs.extend(
+            expand(
+                "results/benchmark_analysis/evaluation/"
+                "{dataset}/{clust_method}/{graph_method}/"
+                "{sim_measure}/{neighbors}k.summary.txt",
+
+                dataset=dataset,
+                neighbors=meta["neighbors"],
+
+                graph_method=cfg.get_graph_parameters("graph_method"),
+                clust_method=cfg.get_clustering_methods(),
+                sim_measure=cfg.get_graph_parameters("sim_measure")
+            )
+        )
+
+    return outputs
 
 
 rule all:
     input:
         #expand("data/processed_adata/{dataset}.h5ad", dataset=cfg.get_subdata_names()),
-        expand("results/benchmark_analysis/processed_normalized_data/{dataset}.h5ad",dataset=cfg.get_subdata_names()),
-        get_all_outputs(cfg)
+        #expand("results/benchmark_analysis/processed_normalized_adata/{dataset}.h5ad",dataset=cfg.get_subdata_names()),
+        get_all_outputs
