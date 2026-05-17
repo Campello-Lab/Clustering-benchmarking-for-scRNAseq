@@ -90,7 +90,7 @@ Stored in:
 ```python
 adata.obsp["distances"]
 adata.obsp["connectivities"]
-
+```
 where:
 - `distances` contains graph distances
 - `connectivities` contains edge weights
